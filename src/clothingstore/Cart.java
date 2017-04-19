@@ -5,7 +5,6 @@
  */
 package clothingstore;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,6 +19,8 @@ public class Cart {
     private int number_of_products;
     private Date date;
     
+    //relationship
+    private String account;
     
     
     public void addItem(){}

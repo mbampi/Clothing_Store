@@ -14,5 +14,7 @@ public class Bill {
     
     private PaymentMethod payment_method;
     private double price;
+    //relationship
+    private int cart_id;
     
 }
