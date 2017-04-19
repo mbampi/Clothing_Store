@@ -14,10 +14,4 @@ public abstract class Account {
     private String password;
     
     
-    public void newCart(){};
-    
-    public void login(){};
-    
-    public void logout(){};
-    
 }

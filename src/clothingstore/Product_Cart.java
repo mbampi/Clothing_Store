@@ -14,7 +14,7 @@ public class Product_Cart {
     private double price;
     
     //relationship
-    private int product_id;
-    private int cart_id;
+    private Product product;
+    private Cart cart;
     
 }

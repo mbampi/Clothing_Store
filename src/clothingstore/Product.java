@@ -15,7 +15,13 @@ public abstract class Product{
     private String brand;
     private double price;
     private String description;
-    
-    
 
+//    public Product(String name, String brand, double price, String description) {
+//        this.id = 1;//generate id
+//        this.name = name;
+//        this.brand = brand;
+//        this.price = price;
+//        this.description = description;
+//    }
+    
 }
