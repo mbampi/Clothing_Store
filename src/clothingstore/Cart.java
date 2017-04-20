@@ -5,6 +5,7 @@
  */
 package clothingstore;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -15,21 +16,39 @@ public class Cart {
     private int id;
     private double total;
     private double sub_total;
-    private double tax;
+    private static final double TAX  = 0.10;
     private int number_of_products;
     private Date date;
     
-    //relationship
-    private String account;
+    private ArrayList<Item> items;
+
+    public Cart() {
+        this.id = 1;//generate_id
+        this.sub_total = 0;
+        this.total = 0;
+        this.number_of_products = 0;
+        //this.date = //todaysdate
+        this.items =  new ArrayList<>();
+        
+    }
     
+    public void addItem(Item item){
+        this.items.add(item);
+        this.number_of_products += item.getQuantity();
+        this.sub_total += item.getPrice();
+        this.updateTotal();
+    }
     
-    public void addItem(){}
+    public void deleteItem(int n){
+        Item itemTemp = items.get(n-1);
+        this.number_of_products += itemTemp.getQuantity();
+        this.sub_total += itemTemp.getPrice();
+        this.updateTotal();
+        this.items.remove(itemTemp);
+    }
     
-    public void deleteItem(){}
-    
-    public void editItem(){}
-    
-    public void checkOut(){}
-    
+    private void updateTotal(){
+        this.total = this.sub_total+(this.sub_total*TAX);
+    }
     
 }

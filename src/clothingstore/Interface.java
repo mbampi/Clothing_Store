@@ -70,28 +70,28 @@ public class Interface {
     
     public static void cartPage(){
         Scanner scan = new Scanner(System.in);
-        System.out.println("\n\n----- Clothing Store Admin Page -----");
+        System.out.println("\n\n----- Clothing Store Cart Page -----");
         System.out.println("1 - Add Item");
-        System.out.println("2 - Edit Item ");
-        System.out.println("3 - Delete Item ");
-        System.out.println("4 - Checkout ");
-        System.out.println("5 - Back ");
+        System.out.println("2 - Delete Item ");
+        System.out.println("3 - Checkout ");
+        System.out.println("4 - Back ");
+        System.out.println("4 - Logout ");
         int input_op = scan.nextInt();
         switch(input_op){
             case 1:
                 //Add Item
                 break;
             case 2:
-                //Edit Item 
-                break;
-            case 3:
                 //Delete Item
                 break;
-            case 4:
+            case 3:
                 //Checkout
                 break;
-            case 5:
+            case 4:
                 //Back
+                break;
+            case 5:
+                //Logout
                 break;
             default:
                 break;
