@@ -12,41 +12,60 @@ import java.util.ArrayList;
  * @author matheus
  */
 public class Store {
-    public boolean isLogin;
-    public boolean isAdmin;
     private Account account;
     ArrayList<Account> accounts;
     
     public Store(){
         this.accounts = new ArrayList<>();
+        accounts.add(new Manager("admin", "admin"));
     }
     
     public boolean login(String username, String password){
-        for(Account a : accounts){
-            
-        }
-
-        //if(login correct)
-            //account = Account logged;
-            //if(admin)
-                //go to admin page
-            //else
-                //go to cart
+        Account accountTemp = this.AccountByUsername(username);
+        if(accountTemp!=null && accountTemp.getPassword().equals(password)){
+            this.account = accountTemp;
             return true;
-        //else
-        //return false;
+        }
+        return false;
     }
     
     public void logout(){
-        //isLogin = false;
-        //isAdmin = false;
-        //go to login page
+        this.account = null;
     }
     
-    public void createNewAccount(String username, String password, boolean isAdmin){
-        
+    public boolean createNewAccount(String username, String password, boolean isAdmin){
+        if(this.isAdmin()){
+            if(isAdmin)
+                accounts.add(new Manager(username, password));
+            else
+                accounts.add(new Employee(username, password));
+            return true;
+        }
+        return false;
     }
     
+    public boolean deleteAccount(String username){
+        if(this.isAdmin()){
+            Account accountTemp = this.AccountByUsername(username);
+            accounts.remove(accountTemp);
+            return true;
+        }
+        return false;
+    }
     
+    public boolean isAdmin(){
+        return account.isAdmin();
+    }
     
+    public boolean isLogin(){
+        return !(account==null);
+    }
+    
+    private Account AccountByUsername(String username){
+        for(Account a : accounts){
+            if(a.getUsername().equals(username))
+                return a;
+        }
+        return null;
+    }
 }

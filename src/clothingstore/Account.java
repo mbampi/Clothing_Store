@@ -12,12 +12,12 @@ package clothingstore;
 public abstract class Account {
     private String username;
     private String password;
-    private boolean isAdmin;
+    private boolean Admin;
 
-    public Account(String username, String password, boolean isAdmin) {
+    public Account(String username, String password, boolean Admin) {
         this.username = username;
         this.password = password;
-        this.isAdmin = isAdmin;
+        this.Admin = Admin;
     }
 
     public String getUsername() {
@@ -36,14 +36,12 @@ public abstract class Account {
         this.password = password;
     }
 
-    public boolean isIsAdmin() {
-        return isAdmin;
+    public boolean isAdmin() {
+        return Admin;
     }
 
-    public void setIsAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setAdmin(boolean Admin) {
+        this.Admin = Admin;
     }
-    
-    
     
 }
