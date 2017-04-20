@@ -11,6 +11,10 @@ package clothingstore;
  */
 public class Manager extends Account implements Admin{
 
+    public Manager(String username, String password) {
+        super(username, password, true);
+    }
+    
     public void addProduct(){};
     
     public void editProduct(){};

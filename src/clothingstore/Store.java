@@ -5,16 +5,27 @@
  */
 package clothingstore;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author matheus
  */
 public class Store {
-    public static boolean isLogin;
-    public static boolean isAdmin;
-    private static Account account;
+    public boolean isLogin;
+    public boolean isAdmin;
+    private Account account;
+    ArrayList<Account> accounts;
     
-    public static boolean login(String username, String password){
+    public Store(){
+        this.accounts = new ArrayList<>();
+    }
+    
+    public boolean login(String username, String password){
+        for(Account a : accounts){
+            
+        }
+
         //if(login correct)
             //account = Account logged;
             //if(admin)
@@ -26,13 +37,15 @@ public class Store {
         //return false;
     }
     
-    public static void logout(){
+    public void logout(){
         //isLogin = false;
         //isAdmin = false;
         //go to login page
     }
     
-    
+    public void createNewAccount(String username, String password, boolean isAdmin){
+        
+    }
     
     
     

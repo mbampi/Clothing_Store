@@ -10,6 +10,10 @@ package clothingstore;
  * @author matheus
  */
 public class Employee extends Account{
+
+    public Employee(String username, String password) {
+        super(username, password, false);
+    }
     
     
     
