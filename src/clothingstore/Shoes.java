@@ -10,6 +10,12 @@ package clothingstore;
  * @author matheus
  */
 public class Shoes extends Product{
+
+    public Shoes(String name, String brand, double price, String description) {
+        super(name, brand, price, description);
+    }
+    
+    
     enum ShoeMaterial {Leather, Plastic, Nylon, Suede};
     
     private String category;

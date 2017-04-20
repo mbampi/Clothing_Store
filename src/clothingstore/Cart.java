@@ -29,7 +29,6 @@ public class Cart {
         this.number_of_products = 0;
         //this.date = //todaysdate
         this.items =  new ArrayList<>();
-        
     }
     
     public void addItem(Item item){
@@ -41,14 +40,26 @@ public class Cart {
     
     public void deleteItem(int n){
         Item itemTemp = items.get(n-1);
-        this.number_of_products += itemTemp.getQuantity();
-        this.sub_total += itemTemp.getPrice();
+        this.number_of_products -= itemTemp.getQuantity();
+        this.sub_total -= itemTemp.getPrice();
         this.updateTotal();
         this.items.remove(itemTemp);
     }
     
     private void updateTotal(){
         this.total = this.sub_total+(this.sub_total*TAX);
+    }
+    
+    @Override
+    public String toString(){
+        String output =  "Shopping Cart "+this.id;
+        output += ""+ "ID" + "\t"+ "Item" + "\t" + "Quantity" + "\t" + "Price";
+        int n = 0;
+        for(Item i : items){
+            n++;
+            output += ""+ n + "\t"+ i.getName() + "\t" + i.getQuantity() + "\t" + i.getPrice();
+        }
+        return output;
     }
     
 }

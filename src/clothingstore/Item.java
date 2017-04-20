@@ -12,7 +12,7 @@ package clothingstore;
 public class Item {
     private int quantity;
     private double price;
-    //private Product product;
+    private Product product;
 
     public Item(int quantity) {
         this.quantity = quantity;
@@ -34,6 +34,8 @@ public class Item {
         this.price = price;
     }
     
-    
+    public String getName(){
+        return product.getName();
+    }
     
 }
