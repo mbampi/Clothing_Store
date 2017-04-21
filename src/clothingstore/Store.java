@@ -13,12 +13,13 @@ import java.util.ArrayList;
  */
 public class Store {
     private Account account;
-    private ArrayList<Account> accounts;
-    private ArrayList<Product> products;
+    private final ArrayList<Account> accounts;
+    private final ArrayList<Product> products;
     private Cart cart;
     
     public Store(){
         this.accounts = new ArrayList<>();
+        this.products = new ArrayList<>();
         accounts.add(new Account("admin", "admin", true));
     }
     
@@ -55,6 +56,20 @@ public class Store {
         return null;
     }
     
+    public Cart getCart(){
+        return this.cart;
+    }
+    
+    public boolean hasCart(){
+        return this.cart!=null;
+    }
+    
+    public String checkout(){
+        String out = this.cart.toString();
+        this.cart = null;
+        return out;
+    }
+    
     public Product productById(int id){
         return products.get(id);
     }
@@ -64,27 +79,23 @@ public class Store {
     }
     
     public String listAccounts(){
-        String output = "\t"+"ID"+"\t"+"Username"+"\t"+"isAdmin";
+        String output = "\n\t"+"ID"+"\t"+"Username"+"\t"+"isAdmin";
         for(int i=0; i<this.accounts.size(); i++)
-            output += "\t"+i+"\t"+this.accounts.get(i).getUsername()+"\t"+this.accounts.get(i).isAdmin();
+            output += "\n\t"+i+"\t"+this.accounts.get(i).getUsername()+"\t"+this.accounts.get(i).isAdmin();
         return output;
     }
     
     public String listProducts(){
-        String output = "\t"+"ID"+"\t"+"Brand"+"\t"+"Name"+"\t"+"Price";
+        String output = "\n\t"+"ID"+"\t"+"Brand"+"\t"+"Name"+"\t"+"Price";
         for(int i=0; i<this.products.size(); i++)
-            output += "\t"+i+"\t"+this.products.get(i).getBrand()+"\t"+this.products.get(i).getName()+"\t"+this.products.get(i).getPrice();
+            output += "\n\t"+i+"\t"+this.products.get(i).getBrand()+"\t"+this.products.get(i).getName()+"\t"+this.products.get(i).getPrice();
         return output;
-    }
-        
-    public void addCartItem(Item new_item){
-        this.cart.addItem(new_item);
     }
     
     //    Admin Operations
-    public boolean createNewAccount(String username, String password, boolean admin){
+    public boolean createNewAccount(Account new_account){
         if(this.isAdmin()){
-            accounts.add(new Account(username, password, admin));
+            accounts.add(new_account);
             return true;
         }
         return false;

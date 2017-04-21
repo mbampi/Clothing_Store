@@ -34,15 +34,18 @@ public class UI {
     }
     
     private static void adminPage(){
+        do{
         System.out.println("\n\n----- Clothing Store Admin Page -----");
         System.out.println("1 - Account Manager");
         System.out.println("2 - Report Manager ");
         System.out.println("3 - Product Manager ");
         System.out.println("4 - Shopping Cart ");
+        System.out.println("5 - Logout ");
         int input_op = Integer.parseInt(UI.getInput("Operation: "));
         switch(input_op){
             case 1:
                 //Account Manager
+                UI.accountManagerPage();
                 break;
             case 2:
                 //Report Manager
@@ -54,35 +57,6 @@ public class UI {
                 //Shopping Cart
                 UI.cartPage();
                 break;
-            default:
-                break;
-        }
-    }
-    
-    private static void cartPage(){
-        Scanner scan = new Scanner(System.in);
-        do{
-        System.out.println("\n\n----- Clothing Store Shopping Cart -----");
-        System.out.println("1 - Add Item");
-        System.out.println("2 - Delete Item ");
-        System.out.println("3 - Checkout ");
-        System.out.println("4 - Back ");
-        System.out.println("5 - Logout ");
-        int input_op = scan.nextInt();
-        switch(input_op){
-            case 1:
-                //Add Item
-                UI.newItemPage();
-                break;
-            case 2:
-                //Delete Item
-                break;
-            case 3:
-                //Checkout
-                break;
-            case 4:
-                //Back
-                break;
             case 5:
                 //Logout
                 store.logout();
@@ -93,19 +67,54 @@ public class UI {
         }while(true);
     }
     
-    private static void newItemPage(){
+    private static void cartPage(){
         Scanner scan = new Scanner(System.in);
+        do{
+        System.out.println("\n\n----- Clothing Store Shopping Cart -----");
+        if(!store.hasCart())
+            store.newCart();
+        System.out.println(store.getCart().toString());
+        System.out.println("1 - Add Item");
+        System.out.println("2 - Delete Item ");
+        System.out.println("3 - Checkout ");
+        System.out.println("4 - Logout ");
+        int input_op = scan.nextInt();
+        switch(input_op){
+            case 1:
+                //Add Item
+                UI.newItemPage();
+                break;
+            case 2:
+                //Delete Item
+                int id = Integer.parseInt(UI.getInput("Product ID: "));
+                store.getCart().deleteItem(id);
+                break;
+            case 3:
+                //Checkout
+                System.out.println(store.checkout()); //store.cart = null -> store.newCart
+                return;
+            case 4:
+                //Logout
+                store.logout();
+                return;
+            default:
+                break;
+        }
+        }while(true);
+    }
+    
+    private static void newItemPage(){
         System.out.println("\n\n----- Clothing Store New Item -----");
         store.listProducts();
         Product item_product = store.productById(Integer.parseInt(UI.getInput("Product ID: ")));
         int quantity = Integer.parseInt(UI.getInput("Quantity: "));
         Item new_item = new Item(quantity, item_product);
-        store.addCartItem(new_item);
+        store.getCart().addItem(new_item);
     }
     
     private static void accountManagerPage(){
-        Scanner scan = new Scanner(System.in);
         System.out.println("\n\n----- Clothing Store Account Manager -----");
+        System.out.println(store.listAccounts());
         System.out.println("1 - Add Account");
         System.out.println("2 - Delete Account ");
         System.out.println("3 - Edit Account ");
@@ -114,7 +123,7 @@ public class UI {
         switch(input_op){
             case 1:
                 //Add Account
-                
+                UI.newAccountPage();
                 break;
             case 2:
                 //Delete Account
@@ -130,6 +139,15 @@ public class UI {
             default:
                 break;
         }
+    }
+    
+    private static void newAccountPage(){
+        System.out.println("\n\n----- Clothing Store New Account -----");
+        String new_username = UI.getInput("new Username: ");
+        String new_password = UI.getInput("new Password: ");
+        boolean admin = UI.getInput("Admin? (y or n)").equals("y");
+        Account new_account = new Account(new_username, new_password, admin);
+        store.createNewAccount(new_account);
     }
     
     private static String getInput(String message){

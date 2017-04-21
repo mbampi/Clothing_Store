@@ -53,13 +53,14 @@ public class Cart {
     
     @Override
     public String toString(){
-        String output =  "Shopping Cart "+this.id;
-        output += ""+ "ID" + "\t"+ "Item" + "\t" + "Quantity" + "\t" + "Price";
+        String output =  "\nShopping Cart "+this.id;
+        output += "\n"+ "ID" + "\t"+ "Item" + "\t" + "Quantity" + "\t" + "Price";
         int n = 0;
         for(Item i : items){
             n++;
-            output += ""+ n + "\t"+ i.getName() + "\t" + i.getQuantity() + "\t" + i.getPrice();
+            output += "\n"+ n + "\t"+ i.getName() + "\t" + i.getQuantity() + "\t" + i.getPrice();
         }
+        output += "\nProducts: "+this.number_of_products + "  Sub-total: "+this.sub_total+"  Tax: "+ Cart.TAX*100+"%"+"  TOTAL: "+this.total;
         return output;
     }
     
