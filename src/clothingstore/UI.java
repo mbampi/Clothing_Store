@@ -91,7 +91,7 @@ public class UI {
     private static void newItemPage(){
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\n----- Clothing Store New Item -----");
-        System.out.println("1 - Add Item");
+        String item_product = UI.getInput("Product ID: ");
         System.out.println("2 - Delete Item ");
         System.out.println("3 - Checkout ");
         System.out.println("4 - Back ");

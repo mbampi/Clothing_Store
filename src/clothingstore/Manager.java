@@ -14,15 +14,7 @@ public class Manager extends Account implements Admin{
     public Manager(String username, String password) {
         super(username, password, true);
     }
-    
-    public void addProduct(){};
-    
-    public void editProduct(){};
-    
-    public void deleteProduct(){};
-    
-    public void report(){};
-    
+
     @Override
     public void createAccount() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -37,7 +29,5 @@ public class Manager extends Account implements Admin{
     public void deleteAccount() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
     
 }

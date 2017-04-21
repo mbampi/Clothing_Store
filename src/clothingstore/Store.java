@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Store {
     private Account account;
     ArrayList<Account> accounts;
+    ArrayList<Product> products;
     private Cart cart;
     
     public Store(){
@@ -54,7 +55,7 @@ public class Store {
         return null;
     }
     
-    //     Just Admin Operations
+    //    Admin Operations
     public boolean createNewAccount(String username, String password, boolean isAdmin){
         if(this.isAdmin()){
             if(isAdmin)
@@ -74,5 +75,19 @@ public class Store {
         }
         return false;
     }
+    
+    public void addClothes(){
+        
+    }
+    
+    public void addShoes(){
+        
+    }
+    
+    public void editProduct(){};
+    
+    public void deleteProduct(){};
+    
+    public void report(){};
     
 }
