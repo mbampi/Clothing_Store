@@ -109,17 +109,19 @@ public class Store {
         return false;
     }
     
-    public void addClothes(){
-        
-    }
-    
-    public void addShoes(){
-        
+    public void addProduct(Product new_product){
+        this.products.add(new_product);
     }
     
     public void editProduct(){};
     
-    public void deleteProduct(){};
+    public boolean deleteProduct(int id){
+        if(this.isAdmin()){
+            products.remove(id);
+            return true;
+        }
+        return false;
+    }
     
     public void report(){}; //later
     

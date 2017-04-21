@@ -15,10 +15,10 @@ public class Shoes extends Product{
         super(name, brand, price, description);
     }
     
-    
+    enum Category {Formal, Casual, Running, Slippers};
     enum ShoeMaterial {Leather, Plastic, Nylon, Suede};
     
-    private String category;
+    private Category category;
     private ShoeMaterial material;
     
 

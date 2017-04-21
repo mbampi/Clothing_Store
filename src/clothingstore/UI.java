@@ -52,6 +52,7 @@ public class UI {
                 break;
             case 3:
                 //Product Manager
+                
                 break;
             case 4:
                 //Shopping Cart
@@ -110,6 +111,52 @@ public class UI {
         int quantity = Integer.parseInt(UI.getInput("Quantity: "));
         Item new_item = new Item(quantity, item_product);
         store.getCart().addItem(new_item);
+    }
+    
+    private static void productManagerPage(){
+        System.out.println("\n\n----- Clothing Store Product Manager -----");
+        System.out.println(store.listProducts());
+        System.out.println("1 - Add Product");
+        System.out.println("2 - Delete Product ");
+        System.out.println("3 - Edit Product ");
+        System.out.println("4 - Back ");
+        int input_op = Integer.parseInt(UI.getInput("Operation: "));
+        switch(input_op){
+            case 1:
+                //Add Product
+                UI.newProductPage();
+                break;
+            case 2:
+                //Delete Product
+                int id = Integer.parseInt(UI.getInput("Product ID: "));
+                store.deleteProduct(id);
+                break;
+            case 3:
+                //Edit Product
+                
+                break;
+            case 4:
+                //Back
+                break;
+            default:
+                break;
+        }
+    }
+    
+    private static void newProductPage(){
+        Product new_product;
+        System.out.println("\n\n----- Clothing Store New Product -----");
+        String new_name = UI.getInput("new Name: ");
+        String new_brand = UI.getInput("new Brand: ");
+        float new_price = Float.parseFloat(UI.getInput("new Price: "));
+        String new_description = UI.getInput("new Description: ");
+        String c = UI.getInput("Shoes(s) or Clothes(c): ");
+        if(c.equals("c")){
+            new_product = new Clothes(new_name, new_brand, new_price, new_description);
+        }else{
+            new_product = new Shoes(new_name, new_brand, new_price, new_description);
+        }
+        store.addProduct(new_product);
     }
     
     private static void accountManagerPage(){
