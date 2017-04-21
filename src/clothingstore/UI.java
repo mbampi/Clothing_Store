@@ -52,6 +52,7 @@ public class UI {
                 break;
             case 4:
                 //Shopping Cart
+                UI.cartPage();
                 break;
             default:
                 break;
@@ -60,6 +61,7 @@ public class UI {
     
     private static void cartPage(){
         Scanner scan = new Scanner(System.in);
+        do{
         System.out.println("\n\n----- Clothing Store Shopping Cart -----");
         System.out.println("1 - Add Item");
         System.out.println("2 - Delete Item ");
@@ -83,10 +85,12 @@ public class UI {
                 break;
             case 5:
                 //Logout
-                break;
+                store.logout();
+                return;
             default:
                 break;
         }
+        }while(true);
     }
     
     private static void newItemPage(){
