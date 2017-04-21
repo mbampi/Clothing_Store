@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Store {
     private Account account;
     ArrayList<Account> accounts;
+    private Cart cart;
     
     public Store(){
         this.accounts = new ArrayList<>();
@@ -33,6 +34,27 @@ public class Store {
         this.account = null;
     }
     
+    public void newCart(){
+        this.cart = new Cart(this.account);
+    }
+    
+    public boolean isAdmin(){
+        return account.isAdmin();
+    }
+    
+    public boolean isLogin(){
+        return !(account==null);
+    }
+    
+    private Account AccountByUsername(String username){
+        for(Account a : accounts){
+            if(a.getUsername().equals(username))
+                return a;
+        }
+        return null;
+    }
+    
+    //     Just Admin Operations
     public boolean createNewAccount(String username, String password, boolean isAdmin){
         if(this.isAdmin()){
             if(isAdmin)
@@ -53,19 +75,4 @@ public class Store {
         return false;
     }
     
-    public boolean isAdmin(){
-        return account.isAdmin();
-    }
-    
-    public boolean isLogin(){
-        return !(account==null);
-    }
-    
-    private Account AccountByUsername(String username){
-        for(Account a : accounts){
-            if(a.getUsername().equals(username))
-                return a;
-        }
-        return null;
-    }
 }

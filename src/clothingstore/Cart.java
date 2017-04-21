@@ -13,22 +13,23 @@ import java.util.Date;
  * @author matheus
  */
 public class Cart {
-    private int id;
+    private final int id;
     private double total;
     private double sub_total;
     private static final double TAX  = 0.10;
     private int number_of_products;
     private Date date;
-    
+    private final Account account;
     private ArrayList<Item> items;
 
-    public Cart() {
+    public Cart(Account account) {
         this.id = 1;//generate_id
         this.sub_total = 0;
         this.total = 0;
         this.number_of_products = 0;
         //this.date = //todaysdate
         this.items =  new ArrayList<>();
+        this.account = account;
     }
     
     public void addItem(Item item){

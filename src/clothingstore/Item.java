@@ -10,28 +10,22 @@ package clothingstore;
  * @author matheus
  */
 public class Item {
-    private int quantity;
-    private double price;
-    private Product product;
+    private final int quantity;
+    private final double price;
+    private final Product product;
 
-    public Item(int quantity) {
+    public Item(int quantity, Product product) {
         this.quantity = quantity;
+        this.product = product;
+        this.price = this.product.getPrice() * this.quantity;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
     
     public String getName(){
