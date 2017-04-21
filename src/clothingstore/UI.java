@@ -127,7 +127,8 @@ public class UI {
                 break;
             case 2:
                 //Delete Account
-                
+                int id = Integer.parseInt(UI.getInput("Account ID: "));
+                store.deleteAccount(id);
                 break;
             case 3:
                 //Edit Account
