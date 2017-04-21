@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author matheus
  */
-public class Store {
+public class Store implements Loggable{
     private Account account;
     private final ArrayList<Account> accounts;
     private final ArrayList<Product> products;
@@ -23,6 +23,7 @@ public class Store {
         accounts.add(new Account("admin", "admin", true));
     }
     
+    @Override
     public boolean login(String username, String password){
         Account accountTemp = this.accountByUsername(username);
         if(accountTemp!=null && accountTemp.getPassword().equals(password)){
@@ -32,6 +33,7 @@ public class Store {
         return false;
     }
     
+    @Override
     public void logout(){
         this.cart = null;
         this.account = null;
