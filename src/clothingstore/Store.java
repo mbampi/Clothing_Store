@@ -19,7 +19,7 @@ public class Store {
     
     public Store(){
         this.accounts = new ArrayList<>();
-        accounts.add(new Manager("admin", "admin"));
+        accounts.add(new Account("admin", "admin", true));
     }
     
     public boolean login(String username, String password){
@@ -82,21 +82,17 @@ public class Store {
     }
     
     //    Admin Operations
-    public boolean createNewAccount(String username, String password, boolean isAdmin){
+    public boolean createNewAccount(String username, String password, boolean admin){
         if(this.isAdmin()){
-            if(isAdmin)
-                accounts.add(new Manager(username, password));
-            else
-                accounts.add(new Employee(username, password));
+            accounts.add(new Account(username, password, admin));
             return true;
         }
         return false;
     }
     
-    public boolean deleteAccount(String username){
+    public boolean deleteAccount(int id){
         if(this.isAdmin()){
-            Account accountTemp = this.accountByUsername(username);
-            accounts.remove(accountTemp);
+            accounts.remove(id);
             return true;
         }
         return false;
