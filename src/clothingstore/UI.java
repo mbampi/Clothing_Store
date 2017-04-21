@@ -70,6 +70,7 @@ public class UI {
         switch(input_op){
             case 1:
                 //Add Item
+                UI.newItemPage();
                 break;
             case 2:
                 //Delete Item
@@ -91,17 +92,12 @@ public class UI {
     private static void newItemPage(){
         Scanner scan = new Scanner(System.in);
         System.out.println("\n\n----- Clothing Store New Item -----");
-        String item_product = UI.getInput("Product ID: ");
-        System.out.println("2 - Delete Item ");
-        System.out.println("3 - Checkout ");
-        System.out.println("4 - Back ");
-        System.out.println("5 - Logout ");
-        
-        
-        int input_op = scan.nextInt();
+        store.listProducts();
+        Product item_product = store.productById(Integer.parseInt(UI.getInput("Product ID: ")));
+        int quantity = Integer.parseInt(UI.getInput("Quantity: "));
+        Item new_item = new Item(quantity, item_product);
+        store.addCartItem(new_item);
     }
-    
-    
     
     private static void accountManagerPage(){
         Scanner scan = new Scanner(System.in);
@@ -131,7 +127,6 @@ public class UI {
                 break;
         }
     }
-    
     
     private static String getInput(String message){
         Scanner scan = new Scanner(System.in);

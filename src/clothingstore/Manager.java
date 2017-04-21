@@ -14,7 +14,7 @@ public class Manager extends Account implements Admin{
     public Manager(String username, String password) {
         super(username, password, true);
     }
-
+    
     @Override
     public void createAccount() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
