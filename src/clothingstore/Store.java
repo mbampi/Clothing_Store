@@ -33,6 +33,7 @@ public class Store {
     }
     
     public void logout(){
+        this.cart = null;
         this.account = null;
     }
     

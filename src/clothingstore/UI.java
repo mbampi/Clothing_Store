@@ -52,7 +52,7 @@ public class UI {
                 break;
             case 3:
                 //Product Manager
-                
+                UI.productManagerPage();
                 break;
             case 4:
                 //Shopping Cart
@@ -106,7 +106,7 @@ public class UI {
     
     private static void newItemPage(){
         System.out.println("\n\n----- Clothing Store New Item -----");
-        store.listProducts();
+        System.out.println(store.listProducts());
         Product item_product = store.productById(Integer.parseInt(UI.getInput("Product ID: ")));
         int quantity = Integer.parseInt(UI.getInput("Quantity: "));
         Item new_item = new Item(quantity, item_product);
