@@ -92,7 +92,9 @@ public class UI {
                 break;
             case 3:
                 //Checkout
+                System.out.println("\n----- Shopping Cart Checkout -----");
                 System.out.println(store.checkout()); //store.cart = null -> store.newCart
+                System.out.println("\n----- ---------------------- -----");
                 return;
             case 4:
                 //Logout
