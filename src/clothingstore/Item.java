@@ -21,15 +21,19 @@ public class Item {
     }
 
     public int getQuantity() {
-        return quantity;
+        return this.quantity;
     }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
     
     public String getName(){
-        return product.getName();
+        return this.product.getName();
+    }
+    
+    public double getUnitPrice(){
+        return this.product.getPrice();
     }
     
 }

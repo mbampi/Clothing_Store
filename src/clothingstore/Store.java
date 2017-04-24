@@ -84,7 +84,7 @@ public class Store implements Loggable{
     public String listAccounts(){
         String output = "\n\t"+"ID"+"\t"+"Username"+"\t"+"isAdmin";
         for(int i=0; i<this.accounts.size(); i++)
-            output += "\n\t"+i+"\t"+this.accounts.get(i).getUsername()+"\t"+this.accounts.get(i).isAdmin();
+            output += "\n\t"+i+"\t"+this.accounts.get(i).getUsername()+"\t\t"+this.accounts.get(i).isAdmin();
         return output;
     }
     
