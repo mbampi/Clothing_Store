@@ -38,9 +38,9 @@ public class UI {
         do{
         System.out.println("\n\n----- Clothing Store Admin Page -----");
         System.out.println("1 - Account Manager");
-        System.out.println("2 - Report Manager ");
-        System.out.println("3 - Product Manager ");
-        System.out.println("4 - Shopping Cart ");
+        System.out.println("2 - Product Manager ");
+        System.out.println("3 - Shopping Cart ");
+        System.out.println("4 - Day Report ");
         System.out.println("5 - Logout ");
         int input_op = Integer.parseInt(UI.getInput("Operation: "));
         switch(input_op){
@@ -49,15 +49,16 @@ public class UI {
                 UI.accountManagerPage();
                 break;
             case 2:
-                //Report Manager
-                break;
-            case 3:
                 //Product Manager
                 UI.productManagerPage();
                 break;
-            case 4:
+            case 3:
                 //Shopping Cart
                 UI.cartPage();
+                break;
+            case 4:
+                //Report
+                System.out.println(store.dayReport());
                 break;
             case 5:
                 //Logout

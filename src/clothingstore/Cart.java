@@ -62,5 +62,13 @@ public class Cart {
         output += "\nProducts: "+this.number_of_products + "  Sub-total: "+this.sub_total+"  Tax: "+ Cart.TAX*100+"%"+"  TOTAL: "+this.total;
         return output;
     }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public int getNumber_of_products() {
+        return number_of_products;
+    }
     
 }

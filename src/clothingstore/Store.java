@@ -16,6 +16,9 @@ public class Store implements Loggable{
     private final ArrayList<Account> accounts;
     private final ArrayList<Product> products;
     private Cart cart;
+    private static int sellings;
+    private static int total_products;
+    private static double total_money;
     
     public Store(){
         this.accounts = new ArrayList<>();
@@ -69,6 +72,9 @@ public class Store implements Loggable{
     
     public String checkout(){
         String out = this.cart.toString();
+        Store.total_money += this.cart.getTotal();
+        Store.total_products += this.cart.getNumber_of_products();
+        Store.sellings ++;
         this.cart = null;
         return out;
     }
@@ -124,6 +130,8 @@ public class Store implements Loggable{
         return false;
     }
     
-    public void report(){}; //later
+    public String dayReport(){
+        return "Total Sellings: " + Store.sellings + "\tTotal Products: " + Store.total_products + "\tTotal Money: " + Store.total_money;
+    }
     
 }
