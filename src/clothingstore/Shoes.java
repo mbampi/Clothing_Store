@@ -11,12 +11,17 @@ package clothingstore;
  */
 public class Shoes extends Product{
 
-    enum Category {Formal, Casual, Running, Slippers};
+    public enum Category {Formal, Casual, Running, Slippers, Other};
     
-    private Category category;
+    private final Category category;
     
-    public Shoes(String name, String brand, double price, String description) {
+    public Shoes(String name, String brand, double price, String description, Category category) {
         super(name, brand, price, description);
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
     }
     
     @Override

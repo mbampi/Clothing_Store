@@ -5,6 +5,7 @@
  */
 package clothingstore;
 
+import clothingstore.Shoes.Category;
 import java.util.Scanner;
 
 /**
@@ -148,11 +149,30 @@ public class UI {
         float new_price = Float.parseFloat(UI.getInput("new Price: "));
         String new_description = UI.getInput("new Description: ");
         String c = UI.getInput("Shoes(s) or Clothes(c): ");
-        if(c.equals("c")){
+        if(c.equals("s")){
+            String category_abrev = UI.getInput("new Category: Formal(f), Casual(c), Running(r), Slippers(s), Other(o)");
+            Category new_category;
+            switch(category_abrev){
+                case "f":
+                    new_category = Category.Formal;
+                    break;
+                case "c":
+                    new_category = Category.Casual;
+                    break;
+                case "r":
+                    new_category = Category.Running;
+                    break;
+                case "s":
+                    new_category = Category.Slippers;
+                    break;
+                default:
+                    new_category = Category.Other;
+                    break;
+            }
+            new_product = new Shoes(new_name, new_brand, new_price, new_description, new_category);
+        }else
             new_product = new Clothes(new_name, new_brand, new_price, new_description);
-        }else{
-            new_product = new Shoes(new_name, new_brand, new_price, new_description);
-        }
+        
         store.addProduct(new_product);
     }
     

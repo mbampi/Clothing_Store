@@ -116,11 +116,6 @@ public class Store implements Loggable{
         this.products.add(new_product);
     }
     
-    public void editProduct(){
-        
-    
-    };
-    
     public boolean deleteProduct(int id){
         if(this.isAdmin()){
             products.remove(id);
