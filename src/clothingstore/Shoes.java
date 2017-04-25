@@ -11,15 +11,17 @@ package clothingstore;
  */
 public class Shoes extends Product{
 
+    enum Category {Formal, Casual, Running, Slippers};
+    
+    private Category category;
+    
     public Shoes(String name, String brand, double price, String description) {
         super(name, brand, price, description);
     }
     
-    enum Category {Formal, Casual, Running, Slippers};
-    enum ShoeMaterial {Leather, Plastic, Nylon, Suede};
-    
-    private Category category;
-    private ShoeMaterial material;
-    
+    @Override
+    public String toString(){
+        return super.toString() + "\tCategory: " + this.category;
+    }
 
 }
