@@ -10,11 +10,10 @@ package clothingstore;
  * @author matheus
  */
 public abstract class Product{
-    private int id;
-    private String name;
-    private String brand;
-    private double price;
-    private String description;
+    private final String name;
+    private final String brand;
+    private final double price;
+    private final String description;
 
     public Product(String name, String brand, double price, String description) {
         this.name = name;
@@ -23,7 +22,6 @@ public abstract class Product{
         this.description = description;
     }
     
-
     public String getName() {
         return name;
     }
