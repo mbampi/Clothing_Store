@@ -120,8 +120,7 @@ public class UI {
         System.out.println(store.listProducts());
         System.out.println("1 - Add Product");
         System.out.println("2 - Delete Product ");
-        System.out.println("3 - Edit Product ");
-        System.out.println("4 - Back ");
+        System.out.println("3 - Back ");
         int input_op = Integer.parseInt(UI.getInput("Operation: "));
         switch(input_op){
             case 1:
@@ -134,10 +133,6 @@ public class UI {
                 store.deleteProduct(id);
                 break;
             case 3:
-                //Edit Product
-                
-                break;
-            case 4:
                 //Back
                 break;
             default:
